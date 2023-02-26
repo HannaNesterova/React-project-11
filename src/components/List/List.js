@@ -4,6 +4,7 @@ import Column from '../Column/Column.js';
 
 
 
+
 const List = () => {
     return (
       <div  className={styles.description}>
@@ -12,10 +13,10 @@ const List = () => {
           </header>
           <p>Interesting things I want to check out</p>
           <section className={styles.columns}>
-                {Column({ title: 'Books' })}
-                {Column({ title: 'Movies' })}
-                {Column({ title: 'Games' })}
-          </section>
+            <Column title="Books" icon = 'book'/>
+            <Column title="Movies" icon = 'film' />
+            <Column title="Games" icon = 'gamepad'/>
+        </section>
       </div>
     );
   };
