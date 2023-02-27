@@ -2,6 +2,7 @@ import styles from './List.module.scss';
 import Column from '../Column/Column.js';
 import { useState } from 'react';
 import shortid from 'shortid';
+import ColumnForm from '../ColumnForm/ColumnForm.js';
 
 const List = () => {
   const [columns, setColumns] = useState([
@@ -10,11 +11,10 @@ const List = () => {
     { id: 3, title: 'Games', icon: 'gamepad' }
 ]);
 
-const [value, setValue] = useState('');
 
-const handleSubmit = e => {
-  e.preventDefault();
-  setColumns([...columns, { id: shortid(), title: value }]);
+
+const addColumn = newColumn => {
+  setColumns([...columns, { id: shortid(), title: newColumn.title }]);
 };
 
     return (
@@ -28,10 +28,7 @@ const handleSubmit = e => {
             {columns.map(column => <Column key={column.id} title={column.title} icon={column.icon} />)}
           </section>
 
-          <form onSubmit={handleSubmit}>
-          <input type="text" value={value} onChange={e => setValue(e.target.value)} />
-            <button>Add column</button>
-        </form>
+          <ColumnForm addColumn={addColumn} />
       </div>
     );
   };
