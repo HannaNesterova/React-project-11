@@ -6,7 +6,7 @@ const ColumnForm = props => {
     const [value, setValue] = useState('');
     const addColumn = e => {
         e.preventDefault();
-        props.addColumn({ title: value });
+        props.action({ title: value });
         setValue('');
     }
 

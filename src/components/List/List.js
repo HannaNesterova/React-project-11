@@ -28,7 +28,7 @@ const addColumn = newColumn => {
             {columns.map(column => <Column key={column.id} title={column.title} icon={column.icon} />)}
           </section>
 
-          <ColumnForm addColumn={addColumn} />
+          <ColumnForm action={addColumn} />
       </div>
     );
   };
