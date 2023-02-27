@@ -1,8 +1,10 @@
 import styles from './ColumnForm.module.scss';
 import { useState } from 'react';
+import Button from '../Button/Button';
 
+   //const [value, setValue] = useState('');
 const ColumnForm = props => {
-    //const [value, setValue] = useState('');
+ 
     const [title, setTitle] = useState('');
     const [icon, setIcon] = useState('');
 
@@ -11,7 +13,9 @@ const ColumnForm = props => {
         props.action({ title: value });
         setValue('');
     };*/
-  
+    const TextInput = (props) => {
+        return <input className={styles.input} value={props.value} onChange={props.onChange} placeholder={props.placeholder} type="text" />
+    };
 
     const addColumn = (e) => {
         e.preventDefault();
@@ -21,12 +25,14 @@ const ColumnForm = props => {
 };
 
 	return (
-        <form onSubmit={addColumn}>
-           <span> Title: </span> <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-           <span>Icon: </span><input type="text" value={icon} onChange={(e) => setIcon(e.target.value)} />
-            <button>Add column</button>
+        <form onSubmit={addColumn} className={styles.columnForm}>
+            <span className={styles.textTitle}>Title: </span><TextInput className={styles.input} value={title} onChange={(e) => setTitle(e.target.value)} /> 
+            <span className={styles.textTitle}>Icon:</span> <TextInput className={styles.input} value={icon} onChange={(e) => setIcon(e.target.value)} /> 
+           <Button>Add column</Button>
         </form>
 	);
 };
 
+{/* <span> Title: </span> <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+<span>Icon: </span><input type="text" value={icon} onChange={(e) => setIcon(e.target.value)} /> */}
 export default ColumnForm;

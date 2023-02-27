@@ -1,0 +1,29 @@
+@import '../../styles/settings.scss';
+
+
+.columnForm{
+        display: flex;
+        justify-content: center;  
+        margin: 20px 20px;  
+}
+.textTitle{
+    margin: 10px;
+}
+input{
+    padding: 5px;
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+@media all and (max-width: 450px){
+
+.columnForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    margin: 20px 20px;  
+    gap: 10px;
+}
+}
