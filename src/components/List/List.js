@@ -3,13 +3,9 @@ import Column from './../Column/Column';
 import ColumnForm from './../ColumnForm/ColumnForm';
 import { useState } from 'react';
 import shortid from 'shortid';
+import CardForm from '../CardForm/CardForm';
 
 const List = () => {
-    // const [columns, setColumns] = useState([
-    //     { id: 1, title: 'Books', icon: 'book' },
-    //     { id: 2, title: 'Movies', icon: 'film' },
-    //     { id: 3, title: 'Games', icon: 'gamepad' }
-    // ]);
     const [columns, setColumns] = useState([
       {
         id: 1,
@@ -40,21 +36,24 @@ const List = () => {
       }
     ]);
     
-    const addCard = (newCard, columnId) => {
+    const addColumn = newColumn => {
+      setColumns([...columns, { id: shortid(), title: newColumn.title, icon: newColumn.icon, cards: [] }]);
+  };
+
+     const addCard = (newCard, columnId) => {
       const columnsUpdated = columns.map(column => {
         if(column.id === columnId)
           return { ...column, cards: [...column.cards, { id: shortid(), title: newCard.title }]}
         else
           return column
       })
+      
     
       setColumns(columnsUpdated);
     
     };
 
-    const addColumn = newColumn => {
-      setColumns([...columns, { id: shortid(), title: newColumn.title, icon: newColumn.icon, cards: [] }]);
-  };
+
 
 	return (
 		<div className={styles.list}>
@@ -71,3 +70,4 @@ const List = () => {
 };
 
 export default List;
+
