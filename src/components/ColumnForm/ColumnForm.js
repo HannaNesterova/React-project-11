@@ -2,17 +2,11 @@ import styles from './ColumnForm.module.scss';
 import { useState } from 'react';
 import Button from '../Button/Button';
 
+
    //const [value, setValue] = useState('');
-const ColumnForm = props => {
- 
+    const ColumnForm = props => {
     const [title, setTitle] = useState('');
     const [icon, setIcon] = useState('');
-
-    /*const addColumn = e => {
-        e.preventDefault();
-        props.action({ title: value });
-        setValue('');
-    };*/
     const TextInput = (props) => {
         return <input className={styles.input} value={props.value} onChange={props.onChange} placeholder={props.placeholder} type="text" />
     };
@@ -22,8 +16,8 @@ const ColumnForm = props => {
         props.action({ title: title, icon: icon });
         setTitle('');
         setIcon('');
+        
 };
-
 	return (
         <form onSubmit={addColumn} className={styles.columnForm}>
             <span className={styles.textTitle}>Title: </span><TextInput className={styles.input} value={title} onChange={e => setTitle(e.target.value)} /> 
@@ -33,6 +27,4 @@ const ColumnForm = props => {
 	);
 };
 
-{/* <span> Title: </span> <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-<span>Icon: </span><input type="text" value={icon} onChange={(e) => setIcon(e.target.value)} /> */}
 export default ColumnForm;
