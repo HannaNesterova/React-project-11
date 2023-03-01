@@ -17,14 +17,14 @@ import Button from '../Button/Button';
     const [title, setTitle] = useState('');
     const [icon, setIcon] = useState('');
     
-    const addColumn = e => {
+    const hadleSubmit = e => {
         e.preventDefault();
         props.action({ title: title, icon: icon });
         setTitle('');
         setIcon('');
     };
 	return (
-        <form onSubmit={addColumn} className={styles.columnForm}>
+        <form onSubmit={hadleSubmit} className={styles.columnForm}>
             <span className={styles.textTitle}>Title: </span><TextInput className={styles.input} value={title} onChange={e => setTitle(e.target.value)} /> 
             <span className={styles.textTitle}>Icon:</span> <TextInput className={styles.input} value={icon} onChange={e => setIcon(e.target.value)} /> 
            <Button>Add column</Button>
