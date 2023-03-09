@@ -3,9 +3,10 @@ import styles from './CardForm.module.scss';
 import TextInput from '../TextInput/TextInput';
 import Button from '../Button/Button';
 
-const CardForm = props => {
+const CardForm = (props) => {
 
 const [title, setTitle] = useState('');
+
     const handleSubmit = e => {
         e.preventDefault()
         props.action({title: title}, props.columnId);
