@@ -1,5 +1,5 @@
-import styles from './ColumnForm.module.scss';
 import { useState } from 'react';
+import styles from './ColumnForm.module.scss';
 import Button from '../Button/Button';
 
     const TextInput = (props) => {
