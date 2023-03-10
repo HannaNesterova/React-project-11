@@ -18,10 +18,10 @@ const List = () => {
       </p>
       <section className={styles.columns}>
         {columns.map((column) => (
-          <Column key={column.id} {...column} action={Column}  />
+          <Column key={column.id} {...column} />
         ))}
       </section>
-      <ColumnForm action={ColumnForm} />
+      <ColumnForm action={ColumnForm}/>
     </div>
   );
 };

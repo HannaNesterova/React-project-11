@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from './ColumnForm.module.scss';
 import Button from '../Button/Button';
+import { useDispatch } from 'react-redux';
 
     const TextInput = (props) => {
         return (
@@ -16,10 +17,12 @@ import Button from '../Button/Button';
     const ColumnForm = props => {
     const [title, setTitle] = useState('');
     const [icon, setIcon] = useState('');
+    const dispatch = useDispatch();
     
     const hadleSubmit = e => {
         e.preventDefault();
-        props.action({ title: title, icon: icon });
+        dispatch({type: 'ADD_COLUMN', newColumn: {title, icon}});
+        // props.action({ title: title, icon: icon });
         setTitle('');
         setIcon('');
     };
